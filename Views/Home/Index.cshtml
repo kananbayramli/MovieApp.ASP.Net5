@@ -1,0 +1,30 @@
+﻿@model MovieApp.Web.Models.Movie
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <h1>Film List</h1>
+    <div id="filmler">
+        <div class="film">
+            <p>@Model.Title</p>
+            <p>@Model.Description</p>
+            <p>@Model.Director</p>
+            <p>
+                <ul>
+                    @foreach (var item in Model.Acters)
+                    {
+                        <li>@item</li>
+                    }
+                </ul>
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>
