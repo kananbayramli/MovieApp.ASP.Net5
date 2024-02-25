@@ -11,5 +11,6 @@ namespace MovieApp.Web.Models
         public string Description { get; set; }
         public string Director { get; set; }
         public string[] Acters { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

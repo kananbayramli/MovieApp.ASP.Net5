@@ -21,6 +21,7 @@ namespace MovieApp.Web.Controllers
             m.Description = FilmDescription;
             m.Director = FilmDirector;
             m.Acters = acters;
+            m.ImageUrl = "1.jpg";
 
             return View(m);
         }

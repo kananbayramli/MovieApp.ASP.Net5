@@ -1,8 +1,12 @@
-﻿<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-</head>
-<body>
-    Movies/List
-</body>
-</html>
+﻿@model List<Movie>
+
+<h1>Film List</h1>
+@foreach (var movie in Model)
+{
+    @await Html.PartialAsync("_movie", movie)
+}
+
+@section menu
+{
+    @await Html.PartialAsync("_menu")
+}
