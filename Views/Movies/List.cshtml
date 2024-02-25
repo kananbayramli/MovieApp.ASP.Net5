@@ -8,5 +8,7 @@
 
 @section menu
 {
-    @await Html.PartialAsync("_menu", Model.Genres)
+    @*@await Html.PartialAsync("_menu", Model.Genres)*@
+
+    @await Component.InvokeAsync("Genres")
 }

@@ -16,12 +16,6 @@ namespace MovieApp.Web.Controllers
 
         public IActionResult List()
         {
-            var tipLists = new List<Genre>() {
-                new Genre{ Name = "Detectiv"},
-                new Genre{ Name = "Comedy"},
-                new Genre{ Name = "Romantic"},
-                new Genre{ Name = "War"},
-            };
 
             var movies = new List<Movie>() { 
             new Movie{Title = "Comedy", Description = "Cox gozel film", Director = "Fred", Acters = new string[] {"Jonny Dep", "Brad Pit" }, ImageUrl="1.jpg"},
@@ -31,8 +25,7 @@ namespace MovieApp.Web.Controllers
 
             var model = new MovieGenreViewModel 
             {
-                Movies = movies,
-                Genres = tipLists
+                Movies = movies
             };
 
             return View(model);

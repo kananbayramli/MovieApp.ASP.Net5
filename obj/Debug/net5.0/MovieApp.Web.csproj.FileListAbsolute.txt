@@ -41,3 +41,4 @@ C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\Razor\Views
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\Razor\Views\Shared\_navbar.cshtml.g.cs
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\Razor\Views\Shared\_menu.cshtml.g.cs
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\Razor\Views\Shared\_movie.cshtml.g.cs
+C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\Razor\Views\Shared\Components\Genres\Default.cshtml.g.cs
