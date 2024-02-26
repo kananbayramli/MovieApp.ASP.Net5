@@ -13,12 +13,12 @@ namespace MovieApp.Web.Data
         static MovieRepository()
         {
             _movies = new List<Movie>() {
-            new Movie{MovieId = 1 , Title = "Comedy", Description = "Cox gozel film", Director = "Fred", Acters = new string[] {"Jonny Dep", "Brad Pit" }, ImageUrl="1.jpg"},
-            new Movie{MovieId = 2 ,Title = "Drama", Description = "Cox aglamali film", Director = "Jonathan", Acters = new string[] {"Jonny Dep", "Brad Pit" },ImageUrl="2.jpg"},
-            new Movie{MovieId = 3 ,Title = "Melodrama", Description = "Cox pis film", Director = "Maykl", Acters = new string[] {"Jonny Dep", "Brad Pit" }, ImageUrl="3.jpg"},
-             new Movie{MovieId = 4 , Title = "Comedy", Description = "Cox gozel film", Director = "Fred", Acters = new string[] {"Jonny Dep", "Brad Pit" }, ImageUrl="1.jpg"},
-            new Movie{MovieId = 5 ,Title = "Drama", Description = "Cox aglamali film", Director = "Jonathan", Acters = new string[] {"Jonny Dep", "Brad Pit" },ImageUrl="2.jpg"},
-            new Movie{MovieId = 6 ,Title = "Melodrama", Description = "Cox pis film", Director = "Maykl", Acters = new string[] {"Jonny Dep", "Brad Pit" }, ImageUrl="3.jpg"}
+            new Movie{MovieId = 1 , Title = "Comedy", Description = "Cox gozel film", Director = "Fred", Acters = new string[] {"Jonny Dep", "Brad Pit" }, ImageUrl="1.jpg", GenreId= 1},
+            new Movie{MovieId = 2 ,Title = "Drama", Description = "Cox aglamali film", Director = "Jonathan", Acters = new string[] {"Jonny Dep", "Brad Pit" },ImageUrl="2.jpg", GenreId= 1},
+            new Movie{MovieId = 3 ,Title = "Melodrama", Description = "Cox pis film", Director = "Maykl", Acters = new string[] {"Jonny Dep", "Brad Pit" }, ImageUrl="3.jpg", GenreId= 1},
+             new Movie{MovieId = 4 , Title = "Comedy", Description = "Cox gozel film", Director = "Fred", Acters = new string[] {"Jonny Dep", "Brad Pit" }, ImageUrl="1.jpg", GenreId= 3},
+            new Movie{MovieId = 5 ,Title = "Drama", Description = "Cox aglamali film", Director = "Jonathan", Acters = new string[] {"Jonny Dep", "Brad Pit" },ImageUrl="2.jpg", GenreId= 3},
+            new Movie{MovieId = 6 ,Title = "Melodrama", Description = "Cox pis film", Director = "Maykl", Acters = new string[] {"Jonny Dep", "Brad Pit" }, ImageUrl="3.jpg", GenreId= 4}
             };
         }
 

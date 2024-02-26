@@ -8,15 +8,9 @@
         <div class="col-md-9">
             <div class="card-body">
                 <h5 class="card-title">@Model.Title</h5>
-                <p class="card-text">@Model.Description</p>
-                <p class="card-text">@Model.Director</p>
-                <p class="card-text">
-                    <ul>
-                        @foreach (var acter in Model.Acters)
-                        {
-                            <li>@acter</li>
-                        }
-                    </ul>
+                <p>
+                    <a href="/movies/details/@Model.MovieId" class="btn btn-success" >Detail</a>
+                </p>
                 </p>
             </div>
         </div>
