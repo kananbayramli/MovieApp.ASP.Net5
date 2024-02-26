@@ -20,7 +20,7 @@ using MovieApp.Web.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d05376cb1db45a5c72ecd0db56b3b0a60c3023b1", @"/Views/Movies/List.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b8daa6a8e334fe06164479df8cad94a80bbf70bf", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"18ddcc480ea34491095b40e6478b06e4a93bfa08", @"/Views/_ViewImports.cshtml")]
     public class Views_Movies_List : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<MoviesViewModel>
     {
         #pragma warning disable 1998

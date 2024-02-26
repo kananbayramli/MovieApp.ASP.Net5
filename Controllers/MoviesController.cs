@@ -61,5 +61,16 @@ namespace MovieApp.Web.Controllers
             return RedirectToAction("List");
         }
 
+        public IActionResult Edit(int id)
+        {   
+            return View(MovieRepository.GetById(id));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Movie m)
+        {
+            MovieRepository.Edit(m);
+            return RedirectToAction("Details", "Movies", new {@id = m.MovieId});
+        }
     }
 } 

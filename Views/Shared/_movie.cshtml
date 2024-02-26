@@ -9,7 +9,10 @@
             <div class="card-body">
                 <h5 class="card-title">@Model.Title</h5>
                 <p>
-                    <a href="/movies/details/@Model.MovieId" class="btn btn-success" >Detail</a>
+                    <a asp-controller="Movies" asp-action="Details" asp-route-id="@Model.MovieId"
+                       class="btn btn-success">Detail</a>
+                    <a asp-controller="Movies" asp-action="Edit" asp-route-id="@Model.MovieId"
+                       class="btn btn-success">Edit</a>
                 </p>
                 </p>
             </div>
