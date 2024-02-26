@@ -11,14 +11,18 @@
                 <h5 class="card-title">@Model.Title</h5>
                 <p class="card-text">@Model.Description</p>
                 <p class="card-text">@Model.Director</p>
-                <p>
-                    <ul>
-                        @foreach (var acter in Model.Acters)
-                        {
-                            <li>@acter</li>
-                        }
-                    </ul>
-                </p>
+                @if (Model.Acters != null)
+                {
+                    <p>
+                        <ul>
+                            @foreach (var acter in Model.Acters)
+                            {
+                                <li>@acter</li>
+                            }
+                        </ul>
+                    </p>
+                }
+
             </div>
         </div>
     </div>
