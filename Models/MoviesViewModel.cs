@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace MovieApp.Web.Models
 {
-    public class Genre
+    public class MoviesViewModel
     {
-        public int GenreId { get; set; }
-        public string Name { get; set; }
+        public List<Movie> Movies { get; set; }
     }
 }

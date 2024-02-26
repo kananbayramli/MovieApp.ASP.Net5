@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MovieApp.Web.Data;
 using MovieApp.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -11,13 +12,7 @@ namespace MovieApp.Web.ViewComponents
     {
         public IViewComponentResult Invoke() 
         {
-            var tipLists = new List<Genre>() {
-                new Genre{ Name = "Detectiv"},
-                new Genre{ Name = "Comedy"},
-                new Genre{ Name = "Romantic"},
-                new Genre{ Name = "War"},
-            };
-            return View(tipLists);
+            return View(GenreRepository.Genres);
         }
     }
 }
