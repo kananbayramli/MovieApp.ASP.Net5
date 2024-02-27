@@ -1,6 +1,9 @@
 ﻿@model MoviesViewModel
 
 <h1>Film List</h1>
+
+
+
 @if (Model.Movies.Count() > 0)
 {
 
@@ -9,12 +12,22 @@
         @await Html.PartialAsync("_movie", movie)
     }
 }
-else 
+else
 {
     <div class="alert alert-warning">
         Bu kateqoriyada film tapilmadi . . .
     </div>
 }
+
+@if (TempData["message"] != null)
+{
+    @section message
+    {
+        @await Html.PartialAsync("_message",(string)TempData["message"])
+    }
+}
+
+
 
 
 

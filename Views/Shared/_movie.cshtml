@@ -8,12 +8,18 @@
         <div class="col-md-9">
             <div class="card-body">
                 <h5 class="card-title">@Model.Title</h5>
-                <p>
+                <div>
                     <a asp-controller="Movies" asp-action="Details" asp-route-id="@Model.MovieId"
                        class="btn btn-success">Detail</a>
                     <a asp-controller="Movies" asp-action="Edit" asp-route-id="@Model.MovieId"
                        class="btn btn-success">Edit</a>
-                </p>
+
+                    <form asp-controller="Movies" asp-action="Delete" method="post" style="display: inline;">
+                        <input type="hidden" name="Title" value="@Model.Title" />
+                        <input type="hidden" name="MovieId" value="@Model.MovieId" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
                 </p>
             </div>
         </div>

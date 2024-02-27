@@ -45,3 +45,4 @@ C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\Razor\Views
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\Razor\Views\Movies\Details.cshtml.g.cs
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\Razor\Views\Movies\Create.cshtml.g.cs
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\Razor\Views\Movies\Edit.cshtml.g.cs
+C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\Razor\Views\Shared\_message.cshtml.g.cs

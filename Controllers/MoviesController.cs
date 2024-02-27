@@ -61,6 +61,7 @@ namespace MovieApp.Web.Controllers
             if(ModelState.IsValid) 
             {
                 MovieRepository.Add(m);
+                TempData["message"] = $"{m.Title} adli film elave olundu...";
                 return RedirectToAction("List");
             }
             ViewBag.Genres = new SelectList(GenreRepository.Genres, "GenreId", "Name");
@@ -84,6 +85,15 @@ namespace MovieApp.Web.Controllers
 
             ViewBag.Genres = new SelectList(GenreRepository.Genres, "GenreId", "Name");
             return View(m);
+        }
+
+
+        [HttpPost]
+        public IActionResult Delete(int MovieId, string Title) 
+        {
+            MovieRepository.Delete(MovieId);
+            TempData["message"] = $"{Title} adli film silinmishdir...";
+            return RedirectToAction("List");
         }
     }
 } 
