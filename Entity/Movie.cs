@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieApp.Web.Models
+namespace MovieApp.Web.Entity
 {
     public class Movie
     {
@@ -21,11 +21,9 @@ namespace MovieApp.Web.Models
 
         public string[] Acters { get; set; }
 
-        [Display(Name ="Image")]
         public string ImageUrl { get; set; }
 
-        [Required(ErrorMessage = "Filmin Kateqoriyasini secin...")]
-        [Display(Name = "Category")]
-        public int? GenreId { get; set; }  //null olduqda required ishleyir
+        [Required]
+        public int GenreId { get; set; }
     }
 }
