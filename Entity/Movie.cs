@@ -19,8 +19,6 @@ namespace MovieApp.Web.Entity
         [Required]
         public string Director { get; set; }
 
-        public string[] Acters { get; set; }
-
         public string ImageUrl { get; set; }
 
         [Required]
