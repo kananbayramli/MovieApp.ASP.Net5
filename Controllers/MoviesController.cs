@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using MovieApp.Web.Data;
 using MovieApp.Web.Models;
 using System;
@@ -50,27 +51,39 @@ namespace MovieApp.Web.Controllers
 
         public IActionResult Create() 
         {
+            ViewBag.Genres = new SelectList(GenreRepository.Genres, "GenreId", "Name");
             return View();
         }
 
         [HttpPost]
         public IActionResult Create(Movie m)
         {
-            MovieRepository.Add(m);
-
-            return RedirectToAction("List");
+            if(ModelState.IsValid) 
+            {
+                MovieRepository.Add(m);
+                return RedirectToAction("List");
+            }
+            ViewBag.Genres = new SelectList(GenreRepository.Genres, "GenreId", "Name");
+            return View(m);
         }
 
         public IActionResult Edit(int id)
-        {   
+        {
+            ViewBag.Genres = new  SelectList(GenreRepository.Genres, "GenreId", "Name");
             return View(MovieRepository.GetById(id));
         }
 
         [HttpPost]
         public IActionResult Edit(Movie m)
         {
-            MovieRepository.Edit(m);
-            return RedirectToAction("Details", "Movies", new {@id = m.MovieId});
+            if (ModelState.IsValid)
+            {
+                MovieRepository.Edit(m);
+                return RedirectToAction("Details", "Movies", new { @id = m.MovieId });
+            }
+
+            ViewBag.Genres = new SelectList(GenreRepository.Genres, "GenreId", "Name");
+            return View(m);
         }
     }
 } 
