@@ -11,7 +11,7 @@ namespace MovieApp.Web.Data
 {
     public static class DataSeeding
     {
-        public static void Seed(IApplicationBuilder app) 
+        public static void Seed(IApplicationBuilder app)
         {
             var scope = app.ApplicationServices.CreateScope();
             var context = scope.ServiceProvider.GetService<MovieContext>();
@@ -68,8 +68,28 @@ namespace MovieApp.Web.Data
                             ImageUrl="6.jpg",
                             Genre= genres[3]}
                         };
+            var users = new List<User>()
+            {
+                new User(){Username = "userA", Email="usera@gmail.com", Password="1234", ImageUrl="person1.jpg" },
+                new User(){Username = "userB", Email="userb@gmail.com", Password="1234", ImageUrl="person2.jpg" },
+                new User(){Username = "userC", Email="userc@gmail.com", Password="1234", ImageUrl="person3.jpg",
+                        Person = new Person()
+                        {
+                            Name="Personal 1",
+                            Biography="Tanitim 1"
+                        }
+                },
 
-            if (context.Database.GetPendingMigrations().Count() == 0) 
+                new User(){Username = "userD", Email="userd@gmail.com", Password="1234", ImageUrl="person4.jpg",
+                        Person = new Person()
+                        {
+                            Name="Personal 2",
+                            Biography="Tanitim 2"
+                        }
+                }
+            };
+
+            if (context.Database.GetPendingMigrations().Count() == 0)
             {
                 if (context.Genres.Count() == 0)
                 {
@@ -79,6 +99,11 @@ namespace MovieApp.Web.Data
                 if (context.Movies.Count() == 0)
                 {
                     context.Movies.AddRange(movies);
+                }
+
+                if (context.Users.Count() == 0)
+                {
+                    context.Users.AddRange(users);
                 }
 
                 context.SaveChanges();
