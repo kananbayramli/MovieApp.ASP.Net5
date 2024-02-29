@@ -69,11 +69,7 @@ C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\bin\Debug\net5.0\runtimes\wi
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\bin\Debug\net5.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\bin\Debug\net5.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\bin\Debug\net5.0\runtimes\win-x86\native\e_sqlite3.dll
-C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\staticwebassets\MovieApp.Web.StaticWebAssets.Pack.cache
-C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\staticwebassets\msbuild.MovieApp.Web.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\staticwebassets\msbuild.build.MovieApp.Web.props
-C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.MovieApp.Web.props
-C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.MovieApp.Web.props
-C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\refint\MovieApp.Web.dll
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\bin\Debug\net5.0\Humanizer.dll
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\bin\Debug\net5.0\ref\MovieApp.Web.dll
+C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\staticwebassets\MovieApp.Web.StaticWebAssets.xml
