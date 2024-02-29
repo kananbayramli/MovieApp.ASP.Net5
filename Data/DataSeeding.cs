@@ -18,58 +18,67 @@ namespace MovieApp.Web.Data
 
             context.Database.Migrate();
 
-            if(context.Database.GetPendingMigrations().Count() == 0) 
-            {
-                if (context.Movies.Count() == 0)
-                {
-                    context.Movies.AddRange(
-                        new List<Movie>() {
-                        new Movie{
-                            Title = "Territory", 
-                            Description = "Cox gozel film", 
-                            ImageUrl="1.jpg", 
-                            GenreId= 1},
-                        new Movie{
-                            Title = "Leo Di Film", 
-                            Description = "Cox aglamali film", 
-                            ImageUrl="2.jpg", 
-                            GenreId= 1},
-                        new Movie{
-                            Title = "Hangover", 
-                            Description = "Cox pis film", 
-                            ImageUrl="3.jpg", 
-                            GenreId= 1},
-                         new Movie{
-                            Title = "Territory", 
-                            Description = "Cox gozel film", 
-                            ImageUrl="4.jpg", 
-                            GenreId= 3},
-                        new Movie{
-                            Title = "Hudson and Rex", 
-                            Description = "Cox aglamali film", 
-                            ImageUrl="5.jpg", 
-                            GenreId= 3},
-                        new Movie{
-                            Title = "Hangover 2", 
-                            Description = "Cox pis film", 
-                            ImageUrl="6.jpg", 
-                            GenreId= 4}
-                        }
-                        
-                    );
-                }
-                if (context.Genres.Count() == 0)
-                {
-                    context.Genres.AddRange
-                    (
-                    new List<Genre>()
+            var genres = new List<Genre>()
                     {
-                        new Genre{Name = "Detectiv"},
+                        new Genre{Name = "Detectiv", Movies= new List<Movie>(){
+                            new Movie{
+                            Title = "Genreden elave olunan detevtiv film",
+                            Description = "Cox gozel film",
+                            ImageUrl="1.jpg",
+                            },
+                        new Movie{
+                            Title = "Genreden elave olunan detevtiv film 2",
+                            Description = "Cox fbi film",
+                            ImageUrl="6.jpg",
+                            }}},
+
                         new Genre{Name = "Comedy"},
                         new Genre{Name = "Romantic"},
                         new Genre{Name = "War"}
-                    }
-                    );
+                    };
+            var movies = new List<Movie>() {
+                        new Movie{
+                            Title = "Territory",
+                            Description = "Cox gozel film",
+                            ImageUrl="1.jpg",
+                            Genre= genres[0]},
+                        new Movie{
+                            Title = "Leo Di Film",
+                            Description = "Cox aglamali film",
+                            ImageUrl="2.jpg",
+                            Genre= genres[1]},
+                        new Movie{
+                            Title = "Hangover",
+                            Description = "Cox pis film",
+                            ImageUrl="3.jpg",
+                            Genre= genres[1]},
+                         new Movie{
+                            Title = "Roman",
+                            Description = "Cox gozel film",
+                            ImageUrl="4.jpg",
+                            Genre= genres[2]},
+                        new Movie{
+                            Title = "Hudson and Rex",
+                            Description = "Cox aglamali film",
+                            ImageUrl="5.jpg",
+                            Genre= genres[2]},
+                        new Movie{
+                            Title = "FBI 2",
+                            Description = "Cox yaxwi film",
+                            ImageUrl="6.jpg",
+                            Genre= genres[3]}
+                        };
+
+            if (context.Database.GetPendingMigrations().Count() == 0) 
+            {
+                if (context.Genres.Count() == 0)
+                {
+                    context.Genres.AddRange(genres);
+                }
+
+                if (context.Movies.Count() == 0)
+                {
+                    context.Movies.AddRange(movies);
                 }
 
                 context.SaveChanges();
