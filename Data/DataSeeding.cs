@@ -25,44 +25,33 @@ namespace MovieApp.Web.Data
                     context.Movies.AddRange(
                         new List<Movie>() {
                         new Movie{
-                            MovieId = 1 , 
                             Title = "Territory", 
                             Description = "Cox gozel film", 
-                            Director = "Fred", 
                             ImageUrl="1.jpg", 
                             GenreId= 1},
                         new Movie{
-                            MovieId = 2 ,
                             Title = "Leo Di Film", 
                             Description = "Cox aglamali film", 
-                            Director = "Jonathan",
                             ImageUrl="2.jpg", 
                             GenreId= 1},
                         new Movie{
-                            MovieId = 3 ,
                             Title = "Hangover", 
                             Description = "Cox pis film", 
-                            Director = "Maykl",  
                             ImageUrl="3.jpg", 
                             GenreId= 1},
                          new Movie{
-                            MovieId = 4 , 
                             Title = "Territory", 
                             Description = "Cox gozel film", 
-                            Director = "Fred", 
                             ImageUrl="4.jpg", 
                             GenreId= 3},
                         new Movie{
-                            MovieId = 5 ,
                             Title = "Hudson and Rex", 
                             Description = "Cox aglamali film", 
-                            Director = "Jonathan", 
                             ImageUrl="5.jpg", 
                             GenreId= 3},
-                        new Movie{MovieId = 6 ,
+                        new Movie{
                             Title = "Hangover 2", 
                             Description = "Cox pis film", 
-                            Director = "Maykl",  
                             ImageUrl="6.jpg", 
                             GenreId= 4}
                         }
@@ -75,10 +64,10 @@ namespace MovieApp.Web.Data
                     (
                     new List<Genre>()
                     {
-                        new Genre{GenreId = 1, Name = "Detectiv"},
-                        new Genre{GenreId = 2, Name = "Comedy"},
-                        new Genre{GenreId = 3, Name = "Romantic"},
-                        new Genre{GenreId = 4, Name = "War"}
+                        new Genre{Name = "Detectiv"},
+                        new Genre{Name = "Comedy"},
+                        new Genre{Name = "Romantic"},
+                        new Genre{Name = "War"}
                     }
                     );
                 }
