@@ -72,21 +72,36 @@ namespace MovieApp.Web.Data
             {
                 new User(){Username = "userA", Email="usera@gmail.com", Password="1234", ImageUrl="person1.jpg" },
                 new User(){Username = "userB", Email="userb@gmail.com", Password="1234", ImageUrl="person2.jpg" },
-                new User(){Username = "userC", Email="userc@gmail.com", Password="1234", ImageUrl="person3.jpg",
-                        Person = new Person()
-                        {
-                            Name="Personal 1",
-                            Biography="Tanitim 1"
-                        }
+                new User(){Username = "userC", Email="userc@gmail.com", Password="1234", ImageUrl="person3.jpg"},
+                new User(){Username = "userD", Email="userd@gmail.com", Password="1234", ImageUrl="person4.jpg"}
+            };
+            var people = new List<Person>()
+            {
+                new Person()
+                {
+                    Name = "Personal 1",
+                    Biography = "Tanitim 1",
+                    User = users[0]
                 },
-
-                new User(){Username = "userD", Email="userd@gmail.com", Password="1234", ImageUrl="person4.jpg",
-                        Person = new Person()
-                        {
-                            Name="Personal 2",
-                            Biography="Tanitim 2"
-                        }
+                new Person()
+                {
+                    Name="Personal 2",
+                    Biography="Tanitim 2",
+                    User = users[1]
                 }
+
+
+            };
+            var crews = new List<Crew>()
+            { 
+                new Crew() {Movie=movies[0], Person=people[0], Job="Director"},
+                new Crew() {Movie=movies[0], Person=people[1], Job="First assistant director"}
+
+            };
+            var casts = new List<Cast>() 
+            {
+                new Cast(){Movie=movies[0], Person=people[0], Name="Acter Name 1", Character="Character name 1"},
+                new Cast(){Movie=movies[0], Person=people[1], Name="Acter Name 2", Character="Character name 2"},
             };
 
             if (context.Database.GetPendingMigrations().Count() == 0)
@@ -104,6 +119,21 @@ namespace MovieApp.Web.Data
                 if (context.Users.Count() == 0)
                 {
                     context.Users.AddRange(users);
+                }
+
+                if (context.People.Count() == 0)
+                {
+                    context.People.AddRange(people);
+                }
+
+                if (context.Casts.Count() == 0)
+                {
+                    context.Casts.AddRange(casts);
+                }
+
+                if (context.Crews.Count() == 0)
+                {
+                    context.Crews.AddRange(crews);
                 }
 
                 context.SaveChanges();
