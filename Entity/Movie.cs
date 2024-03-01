@@ -11,16 +11,14 @@ namespace MovieApp.Web.Entity
     {
         //[Key, DatabaseGenerated(DatabaseGeneratedOption.None)] MovieIdnin automatik artirilmasinin qarwisini alir. MsSql bunu automatik artirir.Artirilmasini istemedikde bele ede bilirik.
         public int MovieId { get; set; }
-
         [Required]
         public string Title { get; set; }
-
         [Required]
         public string Description { get; set; }
-
         public string ImageUrl { get; set; }
+
+
         [Required]
-        public Genre Genre { get; set; } //navigation property
-        public int GenreId { get; set; } 
+        public List<Genre> Genres { get; set; }
     }
 }

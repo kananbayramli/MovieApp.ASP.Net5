@@ -41,32 +41,32 @@ namespace MovieApp.Web.Data
                             Title = "Territory",
                             Description = "Cox gozel film",
                             ImageUrl="1.jpg",
-                            Genre= genres[0]},
+                            Genres= new List<Genre>(){genres[0]}},
                         new Movie{
                             Title = "Leo Di Film",
                             Description = "Cox aglamali film",
                             ImageUrl="2.jpg",
-                            Genre= genres[1]},
+                            Genres= new List<Genre>(){genres[1]}},
                         new Movie{
                             Title = "Hangover",
                             Description = "Cox pis film",
                             ImageUrl="3.jpg",
-                            Genre= genres[1]},
+                            Genres= new List<Genre>(){genres[2]}},
                          new Movie{
                             Title = "Roman",
                             Description = "Cox gozel film",
                             ImageUrl="4.jpg",
-                            Genre= genres[2]},
+                            Genres= new List<Genre>(){genres[3]}},
                         new Movie{
                             Title = "Hudson and Rex",
                             Description = "Cox aglamali film",
                             ImageUrl="5.jpg",
-                            Genre= genres[2]},
+                            Genres= new List<Genre>(){genres[3]}},
                         new Movie{
                             Title = "FBI 2",
                             Description = "Cox yaxwi film",
                             ImageUrl="6.jpg",
-                            Genre= genres[3]}
+                            Genres= new List<Genre>(){genres[3]}},
                         };
             var users = new List<User>()
             {

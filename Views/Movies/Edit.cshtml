@@ -20,12 +20,12 @@
         <input asp-for="ImageUrl" class="form-control" value="@Model.ImageUrl" />
         <span asp-validation-for="ImageUrl" class="text-danger"></span>
     </div>
-    <div class="form-group">
+    @*<div class="form-group">
         <label asp-for="GenreId">GenreId</label>
         <select asp-for="GenreId" asp-items="@ViewBag.Genres" class="form-control">
             <option selected disabled>Choose</option>
         </select>
         <span asp-validation-for="GenreId" class="text-danger"></span>
-    </div>
+    </div>*@
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
