@@ -100,3 +100,4 @@ C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\bin\Debug\net5.0\ref\MovieAp
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\staticwebassets\MovieApp.Web.StaticWebAssets.xml
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\Razor\Views\Admin\MovieList.cshtml.g.cs
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\Razor\Views\Admin\MovieUpdate.cshtml.g.cs
+C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\Razor\Views\Admin\GenreList.cshtml.g.cs

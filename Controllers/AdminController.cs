@@ -14,7 +14,7 @@ namespace MovieApp.Web.Controllers
     {
         private readonly MovieContext _context;
 
-        public AdminController(MovieContext context) 
+        public AdminController(MovieContext context)
         {
             _context = context;
         }
@@ -30,14 +30,14 @@ namespace MovieApp.Web.Controllers
             {
                 return NotFound();
             }
-            var entity = _context.Movies.Select(m => new AdminEditMovieViewModel 
+            var entity = _context.Movies.Select(m => new AdminEditMovieViewModel
             {
                 MovieId = m.MovieId,
                 Title = m.Title,
                 Description = m.Description,
                 ImageUrl = m.ImageUrl,
                 SelectedGenres = m.Genres
-            }).FirstOrDefault(m => m.MovieId ==id);
+            }).FirstOrDefault(m => m.MovieId == id);
 
             ViewBag.Genres = _context.Genres.ToList();
 
@@ -50,11 +50,11 @@ namespace MovieApp.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult MovieUpdate(AdminEditMovieViewModel model, int[] genreIds) 
+        public IActionResult MovieUpdate(AdminEditMovieViewModel model, int[] genreIds)
         {
             var entity = _context.Movies.Include("Genres").FirstOrDefault(m => m.MovieId == model.MovieId);
 
-            if (entity == null) 
+            if (entity == null)
             {
                 return NotFound();
             }
@@ -62,7 +62,7 @@ namespace MovieApp.Web.Controllers
             entity.Title = model.Title;
             entity.Description = model.Description;
             entity.ImageUrl = model.ImageUrl;
-            entity.Genres = genreIds.Select(id => _context.Genres.FirstOrDefault(i => i.GenreId==id)).ToList();
+            entity.Genres = genreIds.Select(id => _context.Genres.FirstOrDefault(i => i.GenreId == id)).ToList();
 
             _context.SaveChanges();
 
@@ -70,11 +70,9 @@ namespace MovieApp.Web.Controllers
         }
 
 
-
-
-        public IActionResult MovieList() 
+        public IActionResult MovieList()
         {
-            return View(new AdminMoviesViewModel 
+            return View(new AdminMoviesViewModel
             {
                 Movies = _context.Movies
                 .Include(m => m.Genres)
@@ -86,6 +84,20 @@ namespace MovieApp.Web.Controllers
                     Genres = m.Genres.ToList()
                 })
                 .ToList()
+            });
+        }
+
+
+        public IActionResult GenreList()
+        {
+            return View(new AdminGenresViewModel
+            {
+                Genres = _context.Genres.Select(g => new AdminGenreViewModel
+                {
+                    Name = g.Name,
+                    GenreId = g.GenreId,
+                    Count = g.Movies.Count
+                }).ToList()
             });
         }
     }
