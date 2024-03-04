@@ -34,7 +34,7 @@ namespace MovieApp.Web.Controllers
 
             //var movies = MovieRepository.Movies; Repodan
             var movies = _context.Movies.AsQueryable(); //Asqueryable elediyimiz ucun toliste filter zamani kecirmek lazim deyil, ish bitdikden sonra db-ye yollamaq olar
-
+            
             if (id != null)
             {
                 movies = movies
