@@ -101,7 +101,7 @@ namespace MovieApp.Web.Controllers
             });
         }
 
-        public IActionResult GenreUpdate(int? id) 
+        public IActionResult GenreUpdate(int? id)
         {
             if (id == null)
             {
@@ -109,12 +109,12 @@ namespace MovieApp.Web.Controllers
             }
 
             var entity = _context.Genres
-                .Select(g => new AdminGenreEditViewModel 
+                .Select(g => new AdminGenreEditViewModel
                 {
                     GenreId = g.GenreId,
                     Name = g.Name,
-                    Movies = g.Movies.Select(i => new AdminMovieViewModel 
-                    { 
+                    Movies = g.Movies.Select(i => new AdminMovieViewModel
+                    {
                         MovieId = i.MovieId,
                         Title = i.Title,
                         ImageUrl = i.ImageUrl
@@ -131,11 +131,11 @@ namespace MovieApp.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult GenreUpdate(AdminGenreEditViewModel model, int[] movieIds) 
+        public IActionResult GenreUpdate(AdminGenreEditViewModel model, int[] movieIds)
         {
             var entity = _context.Genres.Include("Movies").FirstOrDefault(i => i.GenreId == model.GenreId);
 
-            if (entity == null) 
+            if (entity == null)
             {
                 return NotFound();
             }
@@ -149,6 +149,36 @@ namespace MovieApp.Web.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("GenreList");
+        }
+
+
+        [HttpPost]
+        public IActionResult GenreDelete(int? genreId)
+        {
+
+            var entity = _context.Genres.Find(genreId);
+            if (entity != null)
+            {
+                _context.Genres.Remove(entity);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("GenreList");
+
+        }
+
+
+        [HttpPost]
+        public IActionResult MovieDelete(int? movieId)
+        {
+
+            var entity = _context.Movies.Find(movieId);
+            if (entity != null)
+            {
+                _context.Movies.Remove(entity);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("MovieList");
+
         }
     }
 }

@@ -8,7 +8,7 @@
             <th style="width:30px">#</th>
             <th style="width:100px">Image</th>
             <th>Title</th>
-            <th style="width:70px">Genres</th>
+            <th style="width:200px">Genres</th>
             <th style="width:160px"></th>
         </tr>
     </thead>
@@ -29,7 +29,10 @@
             </td>
             <td>
                 <a href="/admin/movieupdate/@movie.MovieId" class="btn btn-primary btn-sm">Edit</a>
-                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                <form action="/admin/moviedelete" method="post" style="display:inline;">
+                    <input type="hidden" name="movieId" value="@movie.MovieId" />
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
             </td>
         </tr>
         }
