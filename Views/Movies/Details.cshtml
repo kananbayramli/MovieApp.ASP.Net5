@@ -9,19 +9,7 @@
         <div class="col-md-9">
             <div class="card-body">
                 <h5 class="card-title">@Model.Title</h5>
-                <p class="card-text">@Model.Description</p>
-                @*@if (Model.Acters != null)
-                {
-                    <p>
-                        <ul>
-                            @foreach (var acter in Model.Acters)
-                            {
-                                <li>@acter</li>
-                            }
-                        </ul>
-                    </p>
-                }*@
-
+                <p class="card-text">@Html.Raw(Model.Description)</p>
             </div>
         </div>
     </div>
