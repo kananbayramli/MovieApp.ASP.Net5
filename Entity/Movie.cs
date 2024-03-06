@@ -9,6 +9,13 @@ namespace MovieApp.Web.Entity
 {
     public class Movie
     {
+
+        public Movie()
+        {
+            Genres = new List<Genre>();
+        }
+
+
         //[Key, DatabaseGenerated(DatabaseGeneratedOption.None)] MovieIdnin automatik artirilmasinin qarwisini alir. MsSql bunu automatik artirir.Artirilmasini istemedikde bele ede bilirik.
         public int MovieId { get; set; }
         [Required]
@@ -18,7 +25,6 @@ namespace MovieApp.Web.Entity
         public string ImageUrl { get; set; }
 
 
-        [Required]
         public List<Genre> Genres { get; set; }
     }
 }
