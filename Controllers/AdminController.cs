@@ -38,7 +38,7 @@ namespace MovieApp.Web.Controllers
                 Title = m.Title,
                 Description = m.Description,
                 ImageUrl = m.ImageUrl,
-                SelectedGenres = m.Genres
+                GenreIds = m.Genres.Select(i => i.GenreId).ToArray()
             }).FirstOrDefault(m => m.MovieId == id);
 
             ViewBag.Genres = _context.Genres.ToList();
@@ -47,41 +47,45 @@ namespace MovieApp.Web.Controllers
             {
                 return NotFound();
             }
-
             return View(entity);
         }
 
         [HttpPost]
         public async  Task<IActionResult> MovieUpdate(AdminEditMovieViewModel model, int[] genreIds, IFormFile file)
         {
-            var entity = _context.Movies.Include("Genres").FirstOrDefault(m => m.MovieId == model.MovieId);
-
-            if (entity == null)
+            if (ModelState.IsValid)
             {
-                return NotFound();
-            }
+                var entity = _context.Movies.Include("Genres").FirstOrDefault(m => m.MovieId == model.MovieId);
 
-            entity.Title = model.Title;
-            entity.Description = model.Description;
-
-            if (file != null)
-            {
-                var extension = Path.GetExtension(file.FileName);
-                var fileName = string.Format($"{Guid.NewGuid()}{extension}");
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", fileName);
-                entity.ImageUrl = fileName;
-
-                using (var stream = new FileStream(path, FileMode.Create)) 
+                if (entity == null)
                 {
-                    await file.CopyToAsync(stream);
+                    return NotFound();
                 }
+
+                entity.Title = model.Title;
+                entity.Description = model.Description;
+
+                if (file != null)
+                {
+                    var extension = Path.GetExtension(file.FileName);
+                    var fileName = string.Format($"{Guid.NewGuid()}{extension}");
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", fileName);
+                    entity.ImageUrl = fileName;
+
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                }
+
+                entity.Genres = genreIds.Select(id => _context.Genres.FirstOrDefault(i => i.GenreId == id)).ToList();
+
+                _context.SaveChanges();
+
+                return RedirectToAction("MovieList");
             }
-            
-            entity.Genres = genreIds.Select(id => _context.Genres.FirstOrDefault(i => i.GenreId == id)).ToList();
-
-            _context.SaveChanges();
-
-            return RedirectToAction("MovieList");
+            ViewBag.Genres = _context.Genres.ToList();
+            return View(model);
         }
 
 

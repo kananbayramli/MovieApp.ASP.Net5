@@ -7,6 +7,7 @@
 
     <div class="row">
         <div class="col-md-8">
+            <div asp-validation-summary="All"></div>
             <input type="hidden" name="MovieId" value="@Model.MovieId" />
             <div class="mb-3">
                 <label asp-for="Title">Title</label>
@@ -19,6 +20,7 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="mb-3">
+                <input type="hidden" name="ImageUrl" value="@Model.ImageUrl" />
                 <input type="file" name="file" class="form-control" />
             </div>
 
@@ -35,12 +37,13 @@
                            name="genreIds"
                            value="@item.GenreId"
                            id="genre_@(item.GenreId)"
-                           @(Model.SelectedGenres.Any(g => g.GenreId == item.GenreId) ? "checked" : "")>
+                           @(Model.GenreIds != null ? Model.GenreIds.Any(g => g == item.GenreId) ? "checked" : "":"")>
                     <label class="form-check-label" for="genre_@(item.GenreId)">
                         @item.Name
                     </label>
                 </div>
             }
+            <span asp-validation-for="GenreIds" class="text-danger"></span>
 
             <div class="mt-3">
                 <img src="/img/@Model.ImageUrl" width="150" />

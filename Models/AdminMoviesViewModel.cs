@@ -39,9 +39,17 @@ namespace MovieApp.Web.Models
     public class AdminEditMovieViewModel
     {
         public int MovieId { get; set; }
-        public string Description { get; set; }
+        [Display(Name = "Film Name")]
+        [Required(ErrorMessage = "Film adi mecburdur!")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Film adi ucun 3 - 50 araligda xarakter girilmelidir")]
         public string Title { get; set; }
+
+        [Display(Name = "Film teferruati")]
+        [Required(ErrorMessage = "Film teferruati mecburdur!")]
+        [StringLength(3000, MinimumLength = 10, ErrorMessage = "Film teferruati ucun 10 - 3000 araligda xarakter girilmelidir")]
+        public string Description { get; set; }
         public string ImageUrl { get; set; }
-        public List<Genre> SelectedGenres { get; set; }
+        [Required(ErrorMessage = "En az bir kateqoriya secilmelidir!")]
+        public int[] GenreIds { get; set; }
     }
 }
