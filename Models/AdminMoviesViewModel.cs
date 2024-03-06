@@ -31,6 +31,8 @@ namespace MovieApp.Web.Models
         [Required(ErrorMessage = "Film teferruati mecburdur!")]
         [StringLength(3000, MinimumLength = 10, ErrorMessage = "Film teferruati ucun 10 - 3000 araligda xarakter girilmelidir")]
         public string Description { get; set; }
+        [Required(ErrorMessage = "En az bir kateqoriya secilmelidir!")]
+        public int[] GenreIds { get; set; }
     }
 
 

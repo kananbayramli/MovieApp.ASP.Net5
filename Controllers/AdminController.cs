@@ -200,13 +200,23 @@ namespace MovieApp.Web.Controllers
         public IActionResult MovieCreate() 
         {
             ViewBag.Genres = _context.Genres.ToList();
-            return View();
+            return View(new AdminCreateMovieModel());
         }
 
 
         [HttpPost]
-        public IActionResult MovieCreate(AdminCreateMovieModel model, int[] genreIds)
+        public IActionResult MovieCreate(AdminCreateMovieModel model)
         {
+            if(model.Title != null && model.Title.Contains("@")) 
+            {
+                ModelState.AddModelError("", "@ isharesi ad hissesinde olmaz!");
+            }
+
+            //if (model.GenreIds == null) 
+            //{
+            //    ModelState.AddModelError("GenreIds", "En az bir kateqoriya secilmelidir!");
+            //}
+
             if (ModelState.IsValid)
             {
                 var entity = new Movie 
@@ -215,7 +225,7 @@ namespace MovieApp.Web.Controllers
                     Description = model.Description,
                     ImageUrl = "noimage.png"
                 };
-                foreach (var id in genreIds)
+                foreach (var id in model.GenreIds)
                 {
                     entity.Genres.Add(_context.Genres.FirstOrDefault(i => i.GenreId == id));
                 }
@@ -225,7 +235,7 @@ namespace MovieApp.Web.Controllers
                 return RedirectToAction("MovieList");
             }
             ViewBag.Genres = _context.Genres.ToList();
-            return View();
+            return View(model);
         }
     }
 }
