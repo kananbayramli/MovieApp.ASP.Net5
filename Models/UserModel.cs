@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MovieApp.Web.Validators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace MovieApp.Web.Models
 
         [Required]
         [EmailAddress]
+        [EmailProviders]
         public string Email { get; set; }
 
         [Required]
@@ -28,8 +30,10 @@ namespace MovieApp.Web.Models
 
         [Url]
         public string Url { get; set; }
-        
-        [Range(1990, 2006)]
-        public int BirthYear { get; set; }
+
+        [BirthDate(ErrorMessage ="Dogum tarixi gelecek tarix ola bilmez!")]
+        [DataType(DataType.Date)]
+        [Display(Name="Birth Date")]
+        public DateTime BirthDate { get; set; }
     }
 }
