@@ -109,7 +109,12 @@ namespace MovieApp.Web.Controllers
 
         public IActionResult GenreList()
         {
-            return View(new AdminGenresViewModel
+            return View(GetGenres());
+        }
+
+        private AdminGenresViewModel GetGenres() 
+        {
+            return new AdminGenresViewModel
             {
                 Genres = _context.Genres.Select(g => new AdminGenreViewModel
                 {
@@ -117,8 +122,26 @@ namespace MovieApp.Web.Controllers
                     GenreId = g.GenreId,
                     Count = g.Movies.Count
                 }).ToList()
-            });
+            };
+
+            }
+
+        [HttpPost]
+        public IActionResult GenreCreate(AdminGenresViewModel model) 
+        {
+            if (ModelState.IsValid) 
+            {
+                _context.Genres.Add(new Genre { Name = model.Name });
+                _context.SaveChanges();
+
+                return RedirectToAction("GenreList");
+            }
+            return View("GenreList", GetGenres());
         }
+
+
+
+
 
         public IActionResult GenreUpdate(int? id)
         {
