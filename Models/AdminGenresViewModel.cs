@@ -24,6 +24,7 @@ namespace MovieApp.Web.Models
     public class AdminGenreEditViewModel 
     {
         public int GenreId { get; set; }
+        [Required]
         public string Name { get; set; }
         public List<AdminMovieViewModel> Movies { get; set; }
     }

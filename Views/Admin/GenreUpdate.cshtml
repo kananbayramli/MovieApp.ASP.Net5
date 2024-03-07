@@ -7,6 +7,7 @@
 <form asp-controller="Admin" asp-action="GenreUpdate" method="post">
     <div class="row">
         <div class="col-md-3">
+            <div asp-validation-summary="All" class="text-danger"></div>
             <input type="hidden" name="GenreId" value="@Model.GenreId" />
             <div class="mb-3">
                 <label asp-for="Name"></label>
@@ -16,6 +17,14 @@
         </div>
 
         <div class="col-md-9">
+            @*Burada biz ozumuze sehifeye gelen movieleri yedekliyirik ki Modelstate valid olmasa 
+                filmler itmesin ve sehifede "zapas" kimi qalsin*@
+            @for (int i = 0; i < Model.Movies.Count; i++)
+            {
+                <input type="hidden" name="Movies[@i].MovieId" value="@Model.Movies[i].MovieId" />
+                <input type="hidden" name="Movies[@i].ImageUrl" value="@Model.Movies[i].ImageUrl" />
+                <input type="hidden" name="Movies[@i].Title" value="@Model.Movies[i].Title" />
+            }
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
