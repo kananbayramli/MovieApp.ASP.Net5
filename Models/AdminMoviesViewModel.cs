@@ -1,4 +1,5 @@
 ﻿using MovieApp.Web.Entity;
+using MovieApp.Web.Validators;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -33,6 +34,13 @@ namespace MovieApp.Web.Models
         public string Description { get; set; }
         [Required(ErrorMessage = "En az bir kateqoriya secilmelidir!")]
         public int[] GenreIds { get; set; }
+
+        //Custom Validation example
+        public bool IsClassic { get; set; }
+
+        [ClassicMovie(1950)]
+        [DataType(DataType.Date)]
+        public DateTime ReleaseDate { get; set; } = DateTime.Now;
     }
 
 
