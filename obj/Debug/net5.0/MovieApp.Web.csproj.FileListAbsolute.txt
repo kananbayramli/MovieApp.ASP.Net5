@@ -101,3 +101,4 @@ C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\Razor\Views
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\Razor\Views\Admin\MovieCreate.cshtml.g.cs
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\bin\Debug\net5.0\ref\MovieApp.Web.dll
 C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\staticwebassets\MovieApp.Web.StaticWebAssets.xml
+C:\Users\SAMSUNG\source\repos\MovieApp\MovieApp.Web\obj\Debug\net5.0\Razor\Views\User\CreateUser.cshtml.g.cs
